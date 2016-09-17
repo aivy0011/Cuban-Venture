@@ -1,54 +1,5 @@
- <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
- <link rel="icon" href="imgres_TH0_icon (1).ico">
-
-    <title>Cuban Ventures</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="main.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-
-    
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Cuban Travel</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href="home.php">Home</a></li>
-            <li><a href="about.php">Our Company</a></li>
-            <li class="active"><a href="booking.php">Booking</a></li>
-            <li><a href="helpdesk.php">Help Desk</a></li>
-            <li><a href="logout.php">Logout</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-<?php 
-session_start();
- 
+<?php
+ include "layout/header.php";
  $conn = mysqli_connect("localhost","root","1234","test");
 
 $City =  $_POST['City'];
@@ -58,14 +9,10 @@ $sql = "SELECT name FROM airports WHERE cityName='$City'";
 $result = mysqli_query($conn,$sql);
 $fetch = mysqli_fetch_assoc($result);
 $airport = $fetch['name'];
-
+$Hotel = $_POST["Hotel"];
 //get rating 
 
- $Hotel = $_POST['Hotel'];
-
- $sql2 = "SELECT rating FROM hotel WHERE name = '$Hotel'";
-
-$result2 = mysqli_query($conn,$sql2);
+$result2 = mysqli_query($conn,"SELECT rating FROM hotel WHERE name = '".$_POST['Hotel']."'");
 $fetch2 = mysqli_fetch_assoc($result2);
 $r = $fetch2['rating'];
 
@@ -81,14 +28,13 @@ $price = round($price);
 //echo $price;
 
 // dates 
-$departure2 = $_POST['Departure'];
-$depature = $_POST['Departure'];
+$departure = $_POST['Departure'];
 $arrival = $_POST['Arrival'];
 
 $_SESSION['airport']=$airport;
-$_SESSION['arrival']=$arrival;
+$_SESSION['arrival']=$departure;
 $_SESSION['City']=$City;
-$_SESSION['departure']= $departure2 ;
+$_SESSION['departure']= $arrival;
 $_SESSION['dur']=$dur;
 $_SESSION['Hotel']=$Hotel;
 $_SESSION['num_p']=$num_p;
@@ -136,7 +82,7 @@ $_SESSION['price']=$price ;
             <div class="col-xs-6 col-lg-4">
               <h2></h2>
               <p><h3>Your total is $<?php echo $price ?> </h3> </p>
-              <p><form action="checkout.php" >
+              <p><form action="functions/checkout.php" >
                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Checkout" name="submit" >
 
             </form></p>
@@ -191,7 +137,7 @@ $_SESSION['price']=$price ;
 	</tr>
 </table>
 
-<form action="checkout.php" >
+<form action="functions/checkout.php" >
 	<input class="btn btn-lg btn-primary btn-block" type="submit" value="Checkout" name="submit" >
 
 </form>
@@ -211,7 +157,7 @@ $_SESSION['price']=$price ;
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
-    <script src="bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ie10-viewport-bug-workaround.js"></script>
   </body>

@@ -55,7 +55,7 @@ $country.= '</select>';
 
     <div class="container">
 
-      <form class="form-signin" method="post" action="checkregister.php">
+      <form class="form-signin" method="post" action="functions/checkregister.php">
 
          <h2 class="form-signin-heading">Cuban Ventures</h2>
          

@@ -1,3 +1,13 @@
+<?php
+if(isset($_COOKIE["User"])){
+  session_start();
+  $_SESSION['username'] = $_COOKIE["User"];
+  $_SESSION['id'] = $_COOKIE["id"];
+  header("location: home.php");
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,15 +20,17 @@
     <link rel="icon" href="imgres_TH0_icon (1).ico">
 
     <title>Cuban Ventures</title>
+    
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -41,7 +53,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Cuban Ventures</h3>
+              <h3 class="masthead-brand"></h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#"></a></li>
@@ -53,7 +65,7 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cuban Ventures</h1>
+            <h1 class="cover-heading" id="brand">Cuban Ventures</h1>
             <p class="lead"></p>
             <p class="lead">
               <a href="login.php" class="btn btn-lg btn-default">Login</a>
@@ -78,7 +90,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
-    <script src="bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ie10-viewport-bug-workaround.js"></script>
   </body>

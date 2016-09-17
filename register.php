@@ -29,15 +29,17 @@ $country.= '</select>';
     <link rel="icon" href="imgres_TH0_icon (1).ico">
 
     <title>Signup</title>
+    
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signup.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -54,8 +56,8 @@ $country.= '</select>';
 
     <div class="container">
 
-      <form class="form-signin" method="post" action="checkregister.php">
-        <h2 class="form-signin-heading">Cuban Ventures</h2>
+      <form class="form-signin" method="post" action="functions/checkregister.php">
+        <h2 class="form-signin-heading" id="brand">Cuban Ventures</h2>
         <br />
         <input type="text" name="f_name" id="F_name" class="form-control" placeholder="First Name" required autofocus>
         <br />

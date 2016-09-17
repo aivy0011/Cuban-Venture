@@ -9,7 +9,7 @@ session_start();
    $zipcode = $_POST ['zipcode'];
    $type = $_POST ['type'];
 
-   $conn= mysqli_connect("localhost","root","","test");
+   $conn= mysqli_connect("localhost","root","1234","test");
 
   $sql = "INSERT INTO payment (user,c_holder,c_number,cvv,zipcode,type) VALUES ('$user','$c_holder','$c_number','$cvv','$zipcode','$type')";
 
