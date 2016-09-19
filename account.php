@@ -14,7 +14,7 @@
 
           <h3 class="sub-header">Add a Payment Method</h3>
           <div class="container">
-      <form class="form-signin" method="post" action="payment.php">
+      <form class="form-signin" method="post" action="functions/payment.php">
         <h2 class="form-signin-heading">Enter Your Payment</h2>
         <br />
         <input class="form-control" type="number" name="c_number" id="c_number" placeholder=" enter your card number(XXXX-XXXX-XXXX-XXXX)" pattern = "{16} " required autofocus>
@@ -37,4 +37,4 @@
         </div>
       </div>
     </div>
-<?php include "layout/footer.php"; ?>
+    

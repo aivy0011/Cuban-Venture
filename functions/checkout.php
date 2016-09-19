@@ -19,6 +19,6 @@ $id = $_SESSION["id"];
 
 $update = mysqli_query($conn,$sql3);
 
-header("location: ../home.php");
+header("location: ../trips.php");
 
 

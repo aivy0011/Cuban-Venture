@@ -3,7 +3,7 @@
 
 
 
-          <button class="btn btn-sm btn-primary btn-block" onclick="$('#update1').toggle('slow')">Change Username </button>
+          <button class="btn btn-sm btn-primary btn-block" onclick="$(document).ready(function(){$('#update1').toggle('slow')});">Change Username </button>
 
           <br />
 
@@ -28,11 +28,35 @@
 
             <form name="form_P" action="functions/update.php" method="post">
 
-              <input class="form-control" type="" name="C_password" id="C_password" placeholder="Current Password ">
+              <input type="password" class="form-control"  name="C_password" id="C_password"  placeholder="Current Password ">
 
-              <input class="form-control" type="" name="N_password" id="N_password" placeholder="New Password">
+              <input type="password" class="form-control"  name="N_password" id="N_password"  placeholder="New Password">
 
-              <input class="form-control" type="" name="NC_password" id="NC_password" placeholder="New Confirm Password">
+              <input type="password" class="form-control"  name="NC_password" id="NC_password" placeholder="New Confirm Password">
+              
+              <script>
+                
+                function show () {
+                  
+                  document.getElementById('C_password').type='text';
+                  document.getElementById('N_password').type='text';
+                  document.getElementById('NC_password').type='text';
+                  document.getElementById('check').style.display='none';
+                  document.getElementById('hide').style.display='block';
+                }
+                
+                function hide() {
+                  document.getElementById('C_password').type='password';
+                  document.getElementById('N_password').type='password';
+                  document.getElementById('NC_password').type='password';
+                  document.getElementById('check').style.display='block';
+                  document.getElementById('hide').style.display='none';
+                }
+                
+              </script>
+              
+             <div id="check"> <input type="checkbox" onclick=" show(); "> Show Password </div>
+             <div id="hide" style="display:none;" ><input type="checkbox" onclick= " hide(); "> Hide Password</div>
 
               <br />
 
@@ -63,7 +87,7 @@
 
               <br />
 
-              <button class="btn btn-sm btn-success btn-block" value="1" name="submit" id="submit"> Update </button>
+              <button class="btn btn-sm btn-success btn-block" value="3" name="submit" id="submit"> Update </button>
 
             </form>
 

@@ -7,6 +7,9 @@ $user = $_SESSION['username'];
 $sql = "SELECT * FROM members WHERE username = '$user' ";
 $result = mysqli_query($conn, $sql);
 $results = mysqli_fetch_assoc($result);
+$sql2 = "select * from payment where user = '$user' ";
+$get = mysqli_query($conn, $sql2);
+$show = mysqli_fetch_all($get, MYSQLI_ASSOC);
 include "layout/header.php" ?>
 
 
@@ -58,8 +61,29 @@ include "layout/header.php" ?>
             </tbody>
           </table>
 
-         <?php include "formchange.php" ?>
-
+         <?php require "formchange.php" ?>
+         
+        
+        <h2 class="sub-header">Card Info</h2>
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Card Holder</th>
+                        <th>Card Number</th>
+                        <th>CVV</th>
+                        <th>Zip Code</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <?php foreach ($show as $show) { echo "<tr><td>" .  $show['c_holder'] . "</td><td> XXXX - XXXX - XXXX -". substr($show['c_number'], (strlen($show['c_number'])-4), strlen($show['c_number'])-1). "</td><td>XXX</td><td>" .  $show['zipcode'] . "</td> <td>
+                         <form action = 'functions/remove2.php' method = 'post'> <button name = 'C_id' value = '" . $show['c_number']. "' class='btn btn-sm btn-danger btn-block' > X </button> </form>
+                        </td> "  ; } ?>
+                      </tr>
+        
+                    </tbody>
+                  </table>
 
         </div>
       </div>
@@ -69,16 +93,4 @@ include "layout/header.php" ?>
 
   </div>
   <!-- /.container -->
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script>
-    window.jQuery || document.write('<script src="jquery.min.js"><\/script>')
-  </script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="ie10-viewport-bug-workaround.js"></script>
-</body>
-
-</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

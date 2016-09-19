@@ -15,5 +15,6 @@ session_start();
 
   $result = mysqli_query($conn,$sql);
 
+  header("location: ../manage.php");
 
  ?>

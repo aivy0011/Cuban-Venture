@@ -12,7 +12,7 @@ $user = $_SESSION['username'];
 function C_user () {
 
 
-include "functions/conn.php";
+include "conn.php";
 
 $C_username = $_POST['C_username'];
 
@@ -34,7 +34,7 @@ header('location: ../manage.php');
 
 function C_pass () {
 
-include "functions/conn.php";
+include "conn.php";
 
 $N_username = $_SESSION["username"];
 
@@ -63,7 +63,7 @@ header('location: ../manage.php');
 
 function C_email () {
 
-include "functions/conn.php";
+include "conn.php";
 
 $N_username = $_SESSION["username"];
 
@@ -81,7 +81,7 @@ $N_email = $_POST['N_email'];
 
 $NC_email = $_POST['NC_email'];
 
-$sql = "UPDATE members set password = '$N_email' where  id = '$id'";
+$sql = "UPDATE members set email = '$N_email' where id = '$id'";
 
 $query = mysqli_query($conn, $sql);
 
