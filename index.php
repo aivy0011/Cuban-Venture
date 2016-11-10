@@ -72,7 +72,9 @@ if(isset($_COOKIE["User"])){
               <a href="register.php" class="btn btn-lg btn-default">Signup</a>
             </p>
           </div>
-
+          
+                <button class="btn btn-md btn-link" onclick="window.location.href = 'login_a.php'">Admin Login</button>
+            
           <div class="mastfoot">
             <div class="inner">
               <p> <a href="">Cuban Ventures, INC.</a></p>

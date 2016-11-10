@@ -1,8 +1,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-middle">
          <li><a>&copy; 2015 Cuban Ventures, Inc. &middot;</a></li> 
-         <li><a href="#">Privacy  &middot; </a></li>
+         <li><a href="#" class >Privacy  &middot; </a></li>
          <li><a href="#">Terms</a></a></li>
       </ul>  
       <!--<ul class="nav navbar-nav navbar-right">

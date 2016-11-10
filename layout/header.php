@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_COOKIE["User"])){
+  session_start();
+  $_SESSION['username'] = $_COOKIE["User"];
+  $_SESSION['id'] = $_COOKIE["id"];
+  header("location: home.php");
+} elseif(isset($_SESSION['username'])){
+    
+} else {
+    header("Location: index.php");
+}
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -16,12 +29,19 @@
         <link href="starter-template.css" rel="stylesheet">
         <link href="css/boostrap.min.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
+        <?php if(basename($_SERVER['PHP_SELF']) == "admin_home.php"){ echo "<meta http-equiv='refresh' content='30'>";}?>
     </head>
 
     <body>
         <div class="loader"></div>
         <div class="container">
-            <?php include "navbar.php";
+            <?php 
+            if (basename($_SERVER['PHP_SELF']) != 'admin_home.php' ){
+                 include "navbar.php";
+            } else {
+                 include "admin_navbar.php";
+            }
+           
             if((basename($_SERVER['PHP_SELF']) == "manage.php" || basename($_SERVER['PHP_SELF']) == "account.php") || (basename($_SERVER['PHP_SELF']) == "trips.php")){
              include "aside.php";   
             }

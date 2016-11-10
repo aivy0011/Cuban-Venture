@@ -98,7 +98,7 @@
           <p class="lead">Indigenous peoples of Cuba (mainly Arawak) were nearly extinct because of the European conquest of the 1500s. This, of course, was followed by years of slavery, the most prevalent in Western Cuba. African slaves of Western Cuba fled east to enter a better life, where they could own land and be free. Because of these people, and other aspects, inspired Afrocubanismo. This was a new way to define what it meant to be Cuban. It included integrating African influences in music and art.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src= "http://image.invaluable.com/housePhotos/christies/32/225432/H0027-L08455631.jpg">
+          <img class="featurette-image img-responsive center-block" src= "https://timesjourneys.files.wordpress.com/2014/11/cuba-22.jpg?w=1200&h=550&crop=1">
         </div>
       </div>
 
@@ -128,17 +128,17 @@
 
       <hr class="featurette-divider">
 
-       <div class="row featurette">
-        <div class="col-md-7">
+      
+       
            <iframe
   width="100%"
-  height="450"
+  height="600"
   frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAU1gocaS6pngUR5faFF1p7wH00_HyduwQ
     &q=Cuba" allowfullscreen>
 </iframe>
-        </div>
-        </div>
+       
+      
          <hr class="featurette-divider">
          
 <?php include "footer.php" ?>

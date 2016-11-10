@@ -46,11 +46,11 @@ $show = mysqli_fetch_assoc($result);
 
 $id = $show["id"];
 
-$C_password = $_POST['C_password'];
+$C_password = md5($_POST['C_password']);
 
-$N_password = $_POST['N_password']; 
+$N_password = md5($_POST['N_password']); 
 
-$NC_password = $_POST['NC_password'];
+$NC_password = md5($_POST['NC_password']);
 
 $sql = "UPDATE members set password = '$N_password' where  id = '$id'";
 

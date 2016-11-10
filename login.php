@@ -2,31 +2,34 @@
 include $_SERVER['DOCUMENT_ROOT'].'/functions/conn.php';
 if(isset($_POST["Submit"])){
   $myusername = $_POST['myusername'];
-  $mypassword = $_POST['mypassword'];
+  $mypassword = md5($_POST['mypassword']);
   
   
-  $sql="SELECT id FROM members WHERE username='$myusername' and password ='$mypassword'";
+  $sql="SELECT id, login_access FROM members WHERE username='$myusername' and password ='$mypassword'";
   $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $active = $row['active'];
+  $row = mysqli_fetch_array($result);
+  
   
   $count = mysqli_num_rows($result); //counts number of rows
   
   
   //if result mathched table row must be 1
-  if($count == 1 ) {
-  
-    session_start();
-    $_SESSION['username'] = $myusername;
-    $_SESSION['password'] = $mypassword;
-    $_SESSION["id"] = $row['id'];
-    if($_POST["remember"] == "remember-me"){
-      setcookie("User",$myusername,(time() + (86400) * 30));//Sets the cookies for 30 days
-      setcookie("id",$row["id"],(time() + (86400) * 30));
-      header("location:home.php");
+  if($count == 1){
+    if($row['login_access'] == 'Y'){
+      session_start();
+      $_SESSION['username'] = $myusername;
+      $_SESSION['password'] = $mypassword;
+      $_SESSION["id"] = $row['id'];
+      if($_POST["remember"] == "remember-me"){
+        setcookie("User",$myusername,(time() + (86400) * 30));//Sets the cookies for 30 days
+        setcookie("id",$row["id"],(time() + (86400) * 30));
+        header("location:home.php");
+      } else {
+        header("location:home.php");
+      }
     } else {
-      header("location:home.php");
-    } 	
+      $errMsg = "You've been locked out of your account";
+    }
   } else {
     $errMsg = "<script> alert('You entered in the wrong creditentials. Please try again ') </script>";
   }
@@ -42,8 +45,8 @@ if(isset($_POST["reset"])){
   $find = mysqli_fetch_assoc($query);
   $get = $find["email"];
   $count = mysqli_num_rows($query);
-  $NP =  $_POST["P_confirm"];
-  $NPC = $_POST["NP_confirm"];
+  $NP =  md5($_POST["P_confirm"]);
+  $NPC = md5($_POST["NP_confirm"]);
   
   if($count == 1 ) {
     
